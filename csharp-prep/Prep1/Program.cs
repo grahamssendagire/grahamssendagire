@@ -2,7 +2,7 @@ using System;
 
 class Program
 {
-    static void main(string[] args)
+    static void Main(string[] args)
     {
    Console.Write("what is your favourite color");
    String color = Console.ReadLine();
