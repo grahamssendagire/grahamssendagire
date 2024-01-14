@@ -9,9 +9,8 @@ class Program
       Console.Write("What is the magic number?");
       string answer1 = Console.ReadLine();
       int magicNumber = int.Parse(answer1);
-
-       Random randomGenerator = new Random();
-        int Number = randomGenerator.Next(1, 101);
+       Random randomandomGenerator = new Random();
+        magicNumber = randomandomGenerator.Next(1, 101);
 
         int guess = -1;
       
