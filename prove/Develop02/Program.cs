@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Static System.Console;
 using System.IO;
 
 namespace JournalApp
@@ -12,15 +11,6 @@ namespace JournalApp
   {
     private string JournalFile = "Journal.txt";
     private string TitleArt = @"(\      _.--._  _.--._
-,-=.-":;:;:;\':;:;:;"-._
-\\\:;:;:;:;:;\:;:;:;:;:;\
- \\\:;:;:;:;:;\:;:;:;:;:;\
-  \\\:;:;:;:;:;\:;:;:;:;:;\
-   \\\:;:;:;:;:;\:;::;:;:;:\
-    \\\;:;::;:;;\:;:;:;::;:\
-     \\\;;:;:_:--:\:_:--:_;:;\    -shimrod
-      \\\_.-"      :      "-._\
-       \`_..--""--.;.--""--.._=> ";
 
        
        public void Run()
