@@ -18,13 +18,13 @@ namespace JournalApp
         Title = "Journal App";
         DisplayIntro();
         DisplayjournalContents();
-        //WriteJournalContent();
         createjournalFile();
         RunMenu();
         DisplayOutro();
-        
+        LoadEntry();
         Write();
-       
+        SavejournalContent();
+        
        }
        private void RunMenu()
        {
