@@ -3,34 +3,44 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static System.Console;
+using Static System.Console;
 using System.IO;
-using System.Reflection;
-using System.ComponentModel.DataAnnotations;
-using System.Net.Quic;
 
 namespace JournalApp
 {
-    class Program
-    {
-      public void Run()
+  class Journal
+  {
+    private string JournalFile = "Journal.txt";
+    private string TitleArt = @"(\      _.--._  _.--._
+,-=.-":;:;:;\':;:;:;"-._
+\\\:;:;:;:;:;\:;:;:;:;:;\
+ \\\:;:;:;:;:;\:;:;:;:;:;\
+  \\\:;:;:;:;:;\:;:;:;:;:;\
+   \\\:;:;:;:;:;\:;::;:;:;:\
+    \\\;:;::;:;;\:;:;:;::;:\
+     \\\;;:;:_:--:\:_:--:_;:;\    -shimrod
+      \\\_.-"      :      "-._\
+       \`_..--""--.;.--""--.._=> ";
+
+       
+       public void Run()
        {
         Title = "Journal App";
         DisplayIntro();
         DisplayjournalContents();
-        //WriteJournalContent();
+        WriteJournalContent();
         createjournalFile();
         RunMenu();
         DisplayOutro();
-        
+        Load();
         Write();
-       
+        Save();
        }
        private void RunMenu()
        {
        do
        {
-         string choice = GetChoice();
+         choice = GetChoice();
          switch(choice)
          {
          case "1":
@@ -40,16 +50,15 @@ namespace JournalApp
              DisplayIntro();
              break;
          case "3":
-            
+             Load();
              break;
          case "4":
              SavejournalContent();
              break;
-         
         default:
             break;
         }
-      } while ("choice" != "5");  
+      } while (choice != "5");  
     }
     private string GetChoice()
    {
@@ -93,14 +102,15 @@ namespace JournalApp
            //WriteLine($"Does file exist? {File.Exists("Journal.txt)"}");
            if (!File.Exists("journey.txt"))
            {
-                
+              FileCreateText("journal.txt");    
            }
 
          }
          private void DisplayIntro()
          {
           
-           Write();
+           clear();
+           Console.WriteLine("TitleArt");
            Console.WriteLine(" welcome to the best journal App ever!");
            waitForkey();
          }
@@ -120,15 +130,16 @@ namespace JournalApp
          private void DisplayjournalContents()
          {
             
-           
+            String journal.Text = File.ReadAllText(journalFile);
             Console.WriteLine("\n === journey Contents===");
+            Console.WriteLine(journal.Text);
             Console.WriteLine("=================");
             waitForkey();
          }
             private void Write()
           {
           
-           
+           File.WriteAllText(journal.File, " ");
            Console.WriteLine("\n journal Written");
            waitForkey();
           }
@@ -139,7 +150,7 @@ namespace JournalApp
              WriteLine("\n What would you like to Load: ");
              
              String newline = ReadLine();
-             
+             File.AppendAllText(JournalFile,$"\nEntry:\n>{newline}\n");
             
              WriteLine("The journal has been modified!");
              waitForkey();
@@ -150,11 +161,12 @@ namespace JournalApp
              Console.WriteLine("\n What would you like to Save:? ");
              
              String newline = ReadLine();
-             
+             File.AppendAllText(JournalFile,$"\nEntry:\n>{newline}\n");
             
-             Console.WriteLine("The journal has been modified!");
+             Console.WriteLine("The journal has been modified!")
              waitForkey();
            }
       }
     
 }  
+  
