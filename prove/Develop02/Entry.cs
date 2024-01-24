@@ -14,15 +14,9 @@ public class Entry
    
     }
 
-    public void Write()
-    {
-
-    }
-     public void RunMenu()
-     {
-        
-     }
-     public void LoadFromFile()
+    
+     
+      public void DisplayjournalContents()
      {
 
      }

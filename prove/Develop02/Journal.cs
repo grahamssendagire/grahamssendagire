@@ -14,17 +14,25 @@ public class Journal
     { 
 
     }
-    public void LoadFromFile(string file)
+    public void LoadFromFile()
     {
         
     }
-     public void DisplayjournalContents()
-     {
-
-     }
+    
     
     public void createjournalFile()
     {
 
     }
+
+    public void Write()
+    {
+
+    }
+     public void RunMenu()
+     {
+        
+     }
 }
+
+

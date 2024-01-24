@@ -13,17 +13,24 @@ namespace JournalApp
 {
     class Program
     {
-      public void Main(string[] args)
+      static void Main(string[] args)
        {
+        PromptGenerator prompt = new PromptGenerator();
+        Journal nice = new Journal();
+        Entry great = new Entry();
         Title = "Journal App";
-        DisplayIntro();
-        DisplayjournalContents();
-        createjournalFile();
-        RunMenu();
-        DisplayOutro();
-        LoadEntry();
-        Write();
-        SavejournalContent();
+      
+        great.DisplayjournalContents();
+        nice.createjournalFile();
+        nice.RunMenu();
+        nice.DisplayAll();
+        nice.LoadFromFile();
+        nice.AddEntry();
+        nice.Write();
+        nice.SavejournalContent();
+        great.DisplayOutro();
+        great.DisplayIntro();
+        prompt.GetRandomPrompt();
         
        }
        private void RunMenu()
