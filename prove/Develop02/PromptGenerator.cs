@@ -1,7 +1,6 @@
-
 public class PromptGenerator
 {
-    public list<string> _prompts;
+    public List<string> _prompts;
     public void GetRandomPrompt()
     {
 
