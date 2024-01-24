@@ -13,7 +13,7 @@ namespace JournalApp
 {
     class Program
     {
-      public void Run()
+      public void Main(string[] args)
        {
         Title = "Journal App";
         DisplayIntro();
