@@ -15,22 +15,22 @@ namespace JournalApp
     {
       static void Main(string[] args)
        {
+         
         PromptGenerator prompt = new PromptGenerator();
         Journal nice = new Journal();
         Entry great = new Entry();
         Title = "Journal App";
-      
-        great.DisplayjournalContents();
-        nice.createjournalFile();
         nice.RunMenu();
         nice.DisplayAll();
         nice.LoadFromFile();
         nice.AddEntry();
         nice.Write();
-        nice.SavejournalContent();
+        nice.SaveToFile();
         great.DisplayOutro();
         great.DisplayIntro();
+        nice.CreateJournalFile();
         prompt.GetRandomPrompt();
+        great.DisplayJournalContents();
         
        }
        private void RunMenu()
@@ -50,7 +50,7 @@ namespace JournalApp
             
              break;
          case "4":
-             SavejournalContent();
+             SaveToFile();
              break;
          
         default:
@@ -95,7 +95,7 @@ namespace JournalApp
            return choice;
         }
 
-        private void createjournalFile()
+        private void CreateJournalFile()
         {
            //WriteLine($"Does file exist? {File.Exists("Journal.txt)"}");
            if (!File.Exists("journey.txt"))
@@ -126,8 +126,7 @@ namespace JournalApp
          }
          private void DisplayjournalContents()
          {
-            
-           
+          
             Console.WriteLine("\n === journey Contents===");
             Console.WriteLine("=================");
             waitForkey();
@@ -151,7 +150,7 @@ namespace JournalApp
              WriteLine("The journal has been modified!");
              waitForkey();
            }
-         private void SavejournalContent()
+         private void SaveToFile()
            {
           
              Console.WriteLine("\n What would you like to Save:? ");
