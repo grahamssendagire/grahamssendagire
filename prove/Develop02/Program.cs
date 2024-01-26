@@ -1,12 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Console;
-using System.IO;
-using System.Reflection;
-
 namespace JournalApp
 {
     class Program
@@ -17,7 +9,7 @@ namespace JournalApp
         PromptGenerator prompt = new PromptGenerator();
         Journal nice = new Journal();
         Entry great = new Entry();
-        Title = "Journal App";
+        String Title = "Journal App";
         nice.RunMenu();
         nice.DisplayAll();
         nice.LoadFromFile();
@@ -45,12 +37,11 @@ namespace JournalApp
              DisplayIntro();
              break;
          case "3":
-            
              break;
          case "4":
              SaveToFile();
              break;
-         
+  
         default:
             break;
         }
@@ -75,7 +66,7 @@ namespace JournalApp
                Console.WriteLine(" > 5.Quit.");
 
              
-               choice= ReadLine().Trim();
+               choice = Console.ReadLine().Trim();
               
 
                if(choice== "1" || choice == "2" || choice =="3" || choice=="4" || choice== "5")
@@ -119,7 +110,7 @@ namespace JournalApp
          private void waitForkey()
          {
        
-           WriteLine("\n press any key...");
+           Console.WriteLine("\n press any key...");
         
          }
          private void DisplayjournalContents()
@@ -140,12 +131,12 @@ namespace JournalApp
          private void LoadEntry()
            {
              
-             WriteLine("\n What would you like to Load: ");
+             Console.WriteLine("\n What would you like to Load: ");
              
-             String newline = ReadLine();
+             String newline = Console.ReadLine();
              
             
-             WriteLine("The journal has been modified!");
+             Console.WriteLine("The journal has been modified!");
              waitForkey();
            }
          private void SaveToFile()
@@ -153,7 +144,7 @@ namespace JournalApp
           
              Console.WriteLine("\n What would you like to Save:? ");
              
-             String newline = ReadLine();
+             String newline = Console.ReadLine();
              
             
              Console.WriteLine("The journal has been modified!");

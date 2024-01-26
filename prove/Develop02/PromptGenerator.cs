@@ -2,8 +2,8 @@ using System;
 
 public class PromptGenerator
 {
-    public List<string> _prompts;
-  
+    public List<string> _prompts = new List<string>();
+    
     public void GetRandomPrompt()
     {
        _prompts.Add("Who was the most interesting person I interacted with today?"); 

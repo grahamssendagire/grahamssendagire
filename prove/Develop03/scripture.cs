@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-class scripture
+class Scripture
 {
     private string reference;
     private string text;
     private List<string> hiddenWords;
 
-    public scripture(string reference, string text)
+    public Scripture(string reference, string text)
     {
         this.reference = reference;
         this.text = text;
