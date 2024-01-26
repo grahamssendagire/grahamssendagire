@@ -11,11 +11,7 @@ public class Entry
     public void DisplayOutro()
     { 
 
-   
     }
-
-    
-     
       public void DisplayjournalContents()
      {
 

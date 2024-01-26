@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 using static System.Console;
 using System.IO;
 using System.Reflection;
-using System.ComponentModel.DataAnnotations;
-using System.Net.Quic;
 
 namespace JournalApp
 {
