@@ -2,28 +2,26 @@ using System;
 namespace JournalApp
 {
     class Program
+
     {
+      Journal journal = new Journal();
+      
+      
       static void Main(string[] args)
        {
-         
-        PromptGenerator prompt = new PromptGenerator();
-        Journal nice = new Journal();
-        Entry great = new Entry();
-        String Title = "Journal App";
-        nice.RunMenu();
-        nice.DisplayAll();
-        nice.LoadFromFile();
-        nice.AddEntry();
-        nice.Write();
-        nice.SaveToFile();
-        great.DisplayOutro();
-        great.DisplayIntro();
-        nice.CreateJournalFile();
-        prompt.GetRandomPrompt();
-        great.DisplayJournalContents();
-        
+      DisplayIntro();   
+      RunMenu();
+      GetRandomPrompt();
+      LoadFromFile();
+      SaveToFile();
+      DisplayAll();
+      
        }
-       private void RunMenu()
+       static  void DisplayAll()
+      {
+
+      }
+       static private void RunMenu()
        {
        do
        {
@@ -41,13 +39,18 @@ namespace JournalApp
          case "4":
              SaveToFile();
              break;
-  
+         case "5":
+         Environment.Exit(0);
+         break;
+
         default:
+        Console.WriteLine("Invalid choice. Please try again.");
             break;
+            
         }
       } while ("choice" != "5");  
     }
-    private string GetChoice()
+    static private string GetChoice()
    {
       bool ischoiceValid = false;
       string choice = "";
@@ -58,12 +61,13 @@ namespace JournalApp
       
                Console.WriteLine("Welcome to the journal program");
               
-               Console.WriteLine("\n Please what would you like to do ?");
+               
                Console.WriteLine(" > 1.Write the journal.");
                Console.WriteLine(" > 2.Display the journal.");
                Console.WriteLine(" > 3.Load the journal.");
                Console.WriteLine(" > 4.Save the journal.");
                Console.WriteLine(" > 5.Quit.");
+               Console.WriteLine("\n Please what would you like to do ?");
 
              
                choice = Console.ReadLine().Trim();
@@ -84,7 +88,7 @@ namespace JournalApp
            return choice;
         }
 
-        private void CreateJournalFile()
+        static private void CreateJournalFile()
         {
            //WriteLine($"Does file exist? {File.Exists("Journal.txt)"}");
            if (!File.Exists("journey.txt"))
@@ -93,7 +97,7 @@ namespace JournalApp
            }
 
          }
-         private void DisplayIntro()
+         static private void DisplayIntro()
          {
           
            Write();
@@ -101,46 +105,77 @@ namespace JournalApp
            waitForkey();
          }
      
-         private void DisplayOutro()
+         static private void DisplayOutro()
          {
          
            Console.WriteLine("Thanks for using the journal App!");
            waitForkey();
          }
-         private void waitForkey()
+        static  private void waitForkey()
          {
        
            Console.WriteLine("\n press any key...");
         
          }
-         private void DisplayjournalContents()
+         Entry entry = new Entry();
+         
+         PromptGenerator prompt = new PromptGenerator();
+
+        static  private void DisplayjournalContents()
          {
           
             Console.WriteLine("\n === journey Contents===");
             Console.WriteLine("=================");
             waitForkey();
          }
-            private void Write()
+
+          static private void GetRandomPrompt()
+           {
+            
+           }
+            static public void LoadFromFile()
+             {
+              Console.Write("Enter the filename to load the journal: ");
+              string filename = Console.ReadLine();
+
+             }
+        static private void Write()
           {
           
-           
            Console.WriteLine("\n journal Written");
            waitForkey();
           }
 
-         private void LoadEntry()
+         static private void LoadEntry()
            {
              
              Console.WriteLine("\n What would you like to Load: ");
              
-             String newline = Console.ReadLine();
+            //String newline = Console.ReadLine();
              
             
-             Console.WriteLine("The journal has been modified!");
-             waitForkey();
-           }
-         private void SaveToFile()
+            Console.WriteLine("The journal has been modified!");
+             //waitForkey();
+            Console.Write("Enter the filename to load the journal: ");
+            string filename = Console.ReadLine();
+
+            using (StreamReader reader = new StreamReader(filename))
            {
+            while (!reader.EndOfStream)
+              {
+              Entry entry = new Entry();
+            
+            entry._promptText = reader.ReadLine();
+            entry._entryText  = reader.ReadLine();
+            }
+
+            }
+
+           }  
+         static private void SaveToFile()
+         
+           {
+          
           
              Console.WriteLine("\n What would you like to Save:? ");
              
@@ -149,7 +184,21 @@ namespace JournalApp
             
              Console.WriteLine("The journal has been modified!");
              waitForkey();
+             using (StreamWriter writer = new StreamWriter("filename"))
+            {
+        //foreach (Entry entr in Entries)
+             {
+          //  writer.WriteLine(entry._date);
+           // writer.WriteLine(entry._promptText);
+           // writer.WriteLine(entry._entryText);
+        }
+            }
+
+           
+           
+           
            }
+    
       }
     
-}  
+}
