@@ -1,7 +1,7 @@
 using System;
 public class Journal
 {
-    public List<Entry> _entries;
+    public List<String> _entries;
     public void DisplayAll()
     {
 

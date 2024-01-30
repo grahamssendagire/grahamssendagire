@@ -1,5 +1,5 @@
 using System;
-using System.ComponentModel;
+using System.Collections.Generic;
 namespace JournalApp
 {
     class Program
@@ -151,16 +151,14 @@ namespace JournalApp
            waitForkey();
            string userInput = Console.ReadLine();
            Entry entry = new Entry();
-           entry._promptText = " "
+           entry._promptText = " ";
            entry._date = Convert.ToString(DateTime.Now.ToShortDateString());
            entry._entryText = userInput;
 
-          List<Entry> _entries = new List<Entry>();
-          Add._entries(_EntryText);
-          Add._entries(_date);
-          Add._entry(PromptTesxt);
-
-
+          List<String> _entries = new List<String>();
+          _entries.Add("_PromptText");
+          _entries.Add("_date");
+          _entries.Add("_entryText");
           }
 
          static private void Load()
