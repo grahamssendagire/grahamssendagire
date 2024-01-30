@@ -12,7 +12,7 @@ public class Entry
         string dateText = theCurrentTime.ToShortDateString();
         // This will get the random prompt from class promptGenerator.
         PromptGenerator newPrompt= new PromptGenerator();
-         newPrompt.GetRandomPrompt();
+        _promptText = newPrompt.RandomSelection();
 
         Console.WriteLine($"Date: {DateTime.Now.ToString("MM/DD/YYY")}_prompt: {_promptText}");
         // Recieve the inputs from the user

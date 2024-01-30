@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel;
 namespace JournalApp
 {
     class Program
@@ -28,13 +29,15 @@ namespace JournalApp
          string choice = GetChoice();
          switch(choice)
          {
+          // this is what we call a switch for this program.
          case "1":
              Write();
              break;
          case "2":
-             DisplayIntro();
+             Display();
              break;
          case "3":
+             Load();
              break;
          case "4":
              SaveToFile();
@@ -57,11 +60,8 @@ namespace JournalApp
 
             do
             {
-               Write();
-      
-               Console.WriteLine("Welcome to the journal program");
-              
                
+               Console.WriteLine("Welcome to the journal program");
                Console.WriteLine(" > 1.Write the journal.");
                Console.WriteLine(" > 2.Display the journal.");
                Console.WriteLine(" > 3.Load the journal.");
@@ -99,17 +99,22 @@ namespace JournalApp
          }
          static private void DisplayIntro()
          {
-          
-           Write();
+        
            Console.WriteLine(" welcome to the best journal App ever!");
            waitForkey();
+
          }
      
-         static private void DisplayOutro()
+         static private void Display()
          {
          
-           Console.WriteLine("Thanks for using the journal App!");
+           Console.WriteLine(" \n What was the best part of my day?");
            waitForkey();
+           string userInput = Console.ReadLine();
+           Entry entry = new Entry();
+           
+    
+
          }
         static  private void waitForkey()
          {
@@ -117,7 +122,7 @@ namespace JournalApp
            Console.WriteLine("\n press any key...");
         
          }
-         Entry entry = new Entry();
+         
          
          PromptGenerator prompt = new PromptGenerator();
 
@@ -142,21 +147,27 @@ namespace JournalApp
         static private void Write()
           {
           
-           Console.WriteLine("\n journal Written");
+           Console.WriteLine("\n Who was the most interesting person I interacted with today?");
            waitForkey();
+           string userInput = Console.ReadLine();
+           Entry entry = new Entry();
+           entry._promptText = " "
+           entry._date = Convert.ToString(DateTime.Now.ToShortDateString());
+           entry._entryText = userInput;
+
+          List<Entry> _entries = new List<Entry>();
+          Add._entries(_EntryText);
+          Add._entries(_date);
+          Add._entry(PromptTesxt);
+
+
           }
 
-         static private void LoadEntry()
+         static private void Load()
            {
-             
-             Console.WriteLine("\n What would you like to Load: ");
-             
-            //String newline = Console.ReadLine();
-             
+             Console.WriteLine(" \n How did I see the hand of the Lord in my life today?");
             
-            Console.WriteLine("The journal has been modified!");
-             //waitForkey();
-            Console.Write("Enter the filename to load the journal: ");
+            Console.WriteLine("Enter the filename to load the journal: ");
             string filename = Console.ReadLine();
 
             using (StreamReader reader = new StreamReader(filename))
@@ -176,11 +187,9 @@ namespace JournalApp
          
            {
           
-          
              Console.WriteLine("\n What would you like to Save:? ");
              
              String newline = Console.ReadLine();
-             
             
              Console.WriteLine("The journal has been modified!");
              waitForkey();
@@ -191,7 +200,7 @@ namespace JournalApp
           //  writer.WriteLine(entry._date);
            // writer.WriteLine(entry._promptText);
            // writer.WriteLine(entry._entryText);
-        }
+            }
             }
 
            

@@ -2,6 +2,7 @@ class Program
 {
     public static void Main()
     {
+        
         Reference great = new Reference("john",3,16);
         Scripture scripture = new Scripture( "john","For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life.");
         Console.Clear();
