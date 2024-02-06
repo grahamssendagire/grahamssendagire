@@ -1,5 +1,5 @@
 // declaring the base class in csharp and Adding the attributes as private member variables.
-class Assignment
+public class Assignment
 {
       private string _studentName;
       private string _topic;

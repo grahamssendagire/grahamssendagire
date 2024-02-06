@@ -9,7 +9,7 @@ public class MathAssignment: Assignment
 // it passes 2 of them directly to the "base" constructor, which is the "Assignment" class constructor. 
              public MathAssignment(string studentName,string topic,string textbookSection,string problems): base(studentName,topic)
              { 
-            // here we stick two only two varriables since the two have been passed dirrectly to the base class
+            // here we stick to only two varriables since the two have been passed dirrectly to the base class
                 _textbookSection = textbookSection;
                 _problems = problems;
              }        
