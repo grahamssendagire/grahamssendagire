@@ -1,24 +1,30 @@
-public class program
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+class Program
 {
-public static void Main()
-{
-    EternalQuest quest = new EternalQuest();
+  static void Main(string[] args)
+    {
+        EternalQuest quest = new EternalQuest();
+        quest.CreateGoal("Run a marathon", "simple", 1000);
+        quest.CreateGoal("Read scriptures", "eternal", 100);
+        quest.CreateGoal("Attend the temple", "checklist", 50, 10);
 
-    // Add some example goals
-    quest.AddGoal(new SimpleGoal("Run a Marathon", 1000));
-    quest.AddGoal(new EternalGoal("Read Scriptures", 100));
-    quest.AddGoal(new ChecklistGoal("Attend Temple", 50, 10));
+        quest.RecordEvent("Run a marathon");
+        quest.RecordEvent("Read scriptures");
+        quest.RecordEvent("Attend the temple");
+        quest.RecordEvent("Attend the temple");
 
-    // Record some progress on the goals
-    quest.RecordEvent("Read Scriptures");
-    quest.RecordEvent("Read Scriptures");
-    quest.RecordEvent("Attend Temple");
-    quest.RecordEvent("Attend Temple");
-    quest.RecordEvent("Attend Temple");
-    quest.RecordEvent("Attend Temple");
-    quest.RecordEvent("Attend Temple");
-    quest.RecordEvent("Attend Temple");
-    // Display the current status of the goals
-    quest.DisplayStatus();
- }
-};
+        quest.DisplayScore();
+        quest.DisplayGoals();
+
+        // Save and load goals
+        quest.SaveGoals("goals.dat");
+
+        EternalQuest newQuest = new EternalQuest();
+        newQuest.LoadGoals("goals.dat");
+        newQuest.DisplayGoals();
+    }
+}

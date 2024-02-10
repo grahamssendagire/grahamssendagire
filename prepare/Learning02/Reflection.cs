@@ -38,28 +38,7 @@ public class Reflection : Activity
      for (int i = 1; i < durationInSeconds; )
         {
             // Display random prompt
-            string prompt = prompts[random.Next(prompts.Length)];
-            Console.WriteLine($"Prompt: {prompt}")
-              // Display random prompt
-            string prompt = prompts[random.Next(prompts.Length)];
-            Console.WriteLine($"Prompt: {prompt}");
-
-            // Pause for user to reflect
-            Console.WriteLine("Reflecting...\n");
-            Thread.Sleep(3000); // Pause for 3 seconds
-
-            // Display random questions
-            foreach (string question in questions)
-            {
-                Console.WriteLine($"Question: {question}");
-                // Pause for user to answer
-                Console.WriteLine("Thinking...\n");
-                // Pause for 4 seconds
-                Thread.Sleep(4000); 
-            }
-
-            // Update elapsed time
-            i += 8 * questions.Length; // 8 questions per reflection   
+         
         }
 
         // Display completion message

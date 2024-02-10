@@ -2,7 +2,7 @@ using System;
 
 class Program
 {
-    static void Main(string[] args)
+    static void main(string[] args)
     
       {
          // calling the methods and varriables from the job class:
