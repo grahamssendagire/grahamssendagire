@@ -3,8 +3,10 @@ using System.Collections.Generic;
 
 namespace VideoComments
 {
+    // defining a class called a video.
  class Video
     {
+    //Defining the responsibilities(variables) as public for the video class.
      public string Title { get; set; }
      public string Author { get; set; }
      public int Length { get; set; }
