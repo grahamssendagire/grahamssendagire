@@ -34,9 +34,11 @@ using System;
         foreach (Product product in products) 
         {
             packingLabel += product.GetName() + " (ID: " + product.GetId() + ")\n";
-        }
+        
         return packingLabel;
+        }
     }
+
 
     public string GetShippingLabel()
     {
